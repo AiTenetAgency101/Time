@@ -3,6 +3,7 @@
 name: Health Check
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # Every hour
 
@@ -15,15 +16,16 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: false
 
     - name: Run health check
-      run: ./check_health.sh
+      run: bash ./check_health.sh
 
     - name: Upload health check results
       uses: actions/upload-artifact@v7
       with:
         name: health-check-results
         path: ./results/health_check.json
-
 
