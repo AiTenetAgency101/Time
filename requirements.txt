@@ -14,11 +14,11 @@ docker>=6.0.0
 docker-compose>=2.0.0
 
 # Security & Cryptography
-cryptography>=41.0.0
+cryptography>=48.0.0
 pycryptodome>=3.18.0
 
 # Data Processing
-numpy>=1.24.0
+numpy>=2.4.5
 pandas>=2.0.0
 
 # AI/ML (optional)
