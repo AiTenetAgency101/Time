@@ -55,7 +55,7 @@ jobs:
           output: 'trivy-results-${{ matrix.service }}.sarif'
 
       - name: Upload Trivy results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@v4.37.9
         with:
           sarif_file: 'trivy-results-${{ matrix.service }}.sarif'
           category: trivy-${{ matrix.service }}
@@ -91,7 +91,7 @@ jobs:
 
       - name: Set up Node
         if: matrix.language == 'node'
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -171,7 +171,7 @@ jobs:
 
       - name: Extract metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/engine-${{ matrix.service }}
           tags: |
@@ -368,7 +368,7 @@ jobs:
 
       - name: Notify deployment
         if: success()
-        uses: slackapi/slack-github-action@v3
+        uses: slackapi/slack-github-action@v4
         with:
           payload: |
             {
