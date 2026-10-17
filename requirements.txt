@@ -29,4 +29,4 @@ scikit-learn>=1.9.1  # For clustering container states
 pytest>=9.1.1
 pytest-cov>=4.1.0
 black>=23.7.0
-flake8>=7.3.0
+flake8>=7.4.1
